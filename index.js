@@ -50,6 +50,9 @@ catch(err){
 
 // call the routes
 require('./routes/books.routes')(app);
+app.get('/', (req, res) => {
+    res.send('hello world!');
+  });
 
 //listen port
 app.listen(PORT, ()=> {
