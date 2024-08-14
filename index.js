@@ -20,8 +20,10 @@ app.use(bodyParser.json());
 //IIFE
 (async ()=> {
     try{    
-        //await mongoose.connect(connectionString,{useNewUrlParser:true});
-        await mongoose.connect(DB_PROD_URL,{useNewUrlParser:true});
+        await mongoose.connect(connectionString,{useNewUrlParser: true, useCreateIndex : true,
+            useUnifiedTopology: true, useFindAndModify: false
+        });
+        
         console.log('db connected');
         //await init();
     }
