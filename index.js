@@ -10,7 +10,7 @@ const { PORT } = require('./configs/server.config');
 const { DB_URL, DB_PROD_URL } = require('./configs/db.config');
 
 let connectionString = DB_PROD_URL;
-
+console.log("prod-url: ",DB_PROD_URL)
 if(process.env.NODE_ENV == 'production'){
     connectionString = DB_URL;
 }
@@ -22,7 +22,7 @@ app.use(bodyParser.json());
 (async ()=> {
     try{    
         await mongoose.connect(connectionString);
-        console.log('db connected');
+        console.log('db connected :',connectionString);
         //await init();
     }
     catch(err){
