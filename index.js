@@ -20,13 +20,14 @@ app.use(bodyParser.json());
 //IIFE
 (async ()=> {
     try{    
-        await mongoose.connect(connectionString);
+        //await mongoose.connect(connectionString);
+        await mongoose.connect(process.env.DbUrl);
         
         console.log('db connected');
         //await init();
     }
     catch(err){
-        console.log(connectionString)
+        console.log(process.env.DbUrl)
         console.error('error getting while connecting mongoDB', err);
      
     }
