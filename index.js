@@ -26,6 +26,7 @@ app.use(bodyParser.json());
         //await init();
     }
     catch(err){
+        console.log(connectionString)
         console.error('error getting while connecting mongoDB', err);
      
     }
