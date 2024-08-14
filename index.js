@@ -10,7 +10,6 @@ const { PORT } = require('./configs/server.config');
 const { DB_URL, DB_PROD_URL } = require('./configs/db.config');
 
 let connectionString = DB_PROD_URL;
-console.log("prod-url: ",DB_PROD_URL)
 if(process.env.NODE_ENV == 'production'){
     connectionString = DB_URL;
 }
@@ -22,11 +21,12 @@ app.use(bodyParser.json());
 (async ()=> {
     try{    
         await mongoose.connect(connectionString);
-        console.log('db connected :',connectionString);
+        console.log('db connected');
         //await init();
     }
     catch(err){
         console.error('error getting while connecting mongoDB', err);
+        console.log('db connection issue :',err)
     }
 
 })();
